@@ -131,4 +131,5 @@ public class ListLinked<T> {
         return tamanio == 0;
     }
 
+
 }

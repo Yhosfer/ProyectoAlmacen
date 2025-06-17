@@ -524,6 +524,27 @@ public class GraphLink<E> {
         return distanciaTotal;
     }
 
+    public ListLinked<E> getAllVertices() {
+        ListLinked<E> vertices = new ListLinked<>();
+        for (int i = 0; i < listVertex.size(); i++) {
+            vertices.addLast(listVertex.get(i).getData());
+        }
+        return vertices;
+    }
+
+    public String getAllEdges() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < listVertex.size(); i++) {
+            Vertex<E> v = listVertex.get(i);
+            for (int j = 0; j < v.listAdj.size(); j++) {
+                Edge<E> e = v.listAdj.get(j);
+                sb.append(v.getData()).append(" -> ").append(e.getRefDest().getData())
+                        .append(" (").append(e.weight).append("m)\n");
+            }
+        }
+        return sb.toString();
+    }
+
     public String toString() {
         return this.listVertex.toString();
     }
